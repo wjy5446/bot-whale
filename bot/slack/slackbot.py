@@ -7,8 +7,6 @@ class SlackerAdaptor(object):
 		self.config = configparser.ConfigParser()
 		self.config.read('bot/config/config.ini')
 		
-		print(self.config)
-
 		self.slacker = Slacker(self.config['SLACK']['TOKEN'])
 			
 		self.channel = channel
@@ -26,3 +24,4 @@ class SlackerAdaptor(object):
 	def start_real_time_messaging_session(self):
 		response = self.slacker.rtm.start()
 		return response.body["url"]
+
