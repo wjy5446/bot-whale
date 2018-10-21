@@ -2,12 +2,14 @@ import json
 import configparser
 
 from .router import MsgRouter
+from ..utils.logger import Logger
 
 class MsgListener(object):
 	def __init__(self) -> None:
 		self.config = configparser.ConfigParser()
 		self.config.read('./bot/config/config.ini')
 		self.router = MsgRouter()
+		self.logger = Logger().get_logger()
 
 
 	def handle(self, msg: str) -> None:
