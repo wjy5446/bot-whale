@@ -3,17 +3,20 @@ import websockets
 import time
 from .slack.slackbot import SlackerAdaptor
 from .network.listener import MsgListener
+from .utils.logger import Logger
 
 
 
 class Bot:
 	def __init__(self) -> None:
 		self.slackbot = SlackerAdaptor()
+		self.logger = Logger().get_logger()
 
 	def start_session(self):
 		try:
 			endpoint = self.slackbot.start_real_time_messaging_session()
 			listener = MsgListener()
+			self.logger.info("start real time messaging session!")
 
 			async def execute_bot():
 				ws = await websockets.connect(endpoint)
