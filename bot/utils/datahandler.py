@@ -15,7 +15,7 @@ class DataHandler(object):
 		else:
 			return json.loads(text)
 
-	def read_text(self, filename, filepath):
+	def read_text(self, filename, filepath=None):
 		if filepath is None:
 			filepath = self.data_path
 		path = os.path.join(filepath + filename)

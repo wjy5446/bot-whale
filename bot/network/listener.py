@@ -26,8 +26,6 @@ class MsgListener(object):
 			user=msg.get("user"),
 			channel=msg.get("channel")
 		)
-
-
 	
 	def is_message(self, msg) -> bool:
 		msg_type = msg.get("type", None)

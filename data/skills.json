@@ -1,0 +1,12 @@
+{
+	"skill": {
+		"greeting": {
+			"keyword": ["안녕", "하이"],
+			"params": []
+		},
+		"weather": {
+			"keyword": ["날씨", "비", "우산"],
+			"params": []
+		}
+	}
+}
