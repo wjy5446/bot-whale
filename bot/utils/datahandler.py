@@ -5,7 +5,7 @@ import json
 
 class DataHandler(object):
 	def __init__(self):
-		self.data_path = "data/"
+		self.data_path = "data"
 		self.log_data_path = "log/data/"
 
 	def read_file(self, filename):
@@ -18,7 +18,8 @@ class DataHandler(object):
 	def read_text(self, filename, filepath=None):
 		if filepath is None:
 			filepath = self.data_path
-		path = os.path.join(filepath + filename)
+		path = os.path.join(filepath, filename)
+
 		try:
 			with open(path, "rb") as infile:
 				return infile.read().decode('utf-8')
