@@ -2,6 +2,7 @@ import json
 import random
 from .slack.slackbot import SlackerAdaptor
 from .skills.greeting import Greeting
+from .skills.weather import Weather
 from .utils.logger import FunctionLogger
 
 
@@ -28,4 +29,7 @@ class Behave(object):
 		self.func_logger.info(
 			json.dumps({"function": "weather"})
 		)
-		self.slackbot.send_message(text="날씨가 참 좋아요 !!")
+
+		weather = Weather()
+		attachments = weather.tell_tomorrow_forecast()
+		self.slackbot.send_message(text=None, attachments=attachments)

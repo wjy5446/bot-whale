@@ -13,13 +13,13 @@ class SlackerAdaptor(object):
 		self.user = user
 
 		
-	def send_message(self, channel=None, text=None):
+	def send_message(self, channel=None, text=None, attachments=None):
 		if channel is None:
 			channel = self.config['CHANNEL']['DEFAULT']
 		else:
 			channel = channel
 		
-		self.slacker.chat.post_message(text=text, channel=channel, as_user=True)
+		self.slacker.chat.post_message(text=text, channel=channel, attachments=attachments, as_user=True)
 
 	def start_real_time_messaging_session(self):
 		response = self.slacker.rtm.start()
